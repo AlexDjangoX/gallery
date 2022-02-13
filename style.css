@@ -1,0 +1,375 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+/*
+$breakpoint argument choices:first
+- phone  les than 600px
+- tab-port less than 900px
+- tab-land less than 1200px
+- big-desktop more than 1800px
+*/
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 3rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  body {
+    padding: 1.5rem;
+  }
+}
+
+img {
+  border: 1px solid white;
+  width: 100%;
+}
+
+::-moz-selection {
+  background-color: #7ed56f;
+  color: #fff;
+}
+
+::selection {
+  background-color: #7ed56f;
+  color: #fff;
+}
+
+/*----animated button on landing page ------ */
+@-webkit-keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  20% {
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0rem);
+            transform: translate(0rem);
+  }
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  20% {
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0rem);
+            transform: translate(0rem);
+  }
+}
+
+@-webkit-keyframes moveInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  80% {
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  80% {
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+}
+
+@-webkit-keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+}
+
+.heading-primary {
+  /* h1 element */
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  /* animation shudders at end, this is the fix */
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  /* OUTDOORS */
+  display: block;
+  /* default is in-line, just like text */
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  -webkit-animation: moveInLeft 2s ease-out;
+          animation: moveInLeft 2s ease-out;
+  /* same as below */
+  /* animation-name: moveInLeft;
+      animation-duration: 2s;
+      animation-timing-function: ease-out; */
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
+}
+
+@media only screen and (max-width: 37.5em) {
+  .heading-primary--main {
+    letter-spacing: 1rem;
+    font-size: 5rem;
+  }
+}
+
+.heading-primary--sub {
+  /* IS WHERE LIFE HAPPENS */
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  -webkit-animation: moveInRight 2s ease-out;
+          animation: moveInRight 2s ease-out;
+  /* animation-name: moveInRight;
+      animation-duration: 2s;
+      animation-timing-function: ease-out; */
+}
+
+@media only screen and (max-width: 37.5em) {
+  .heading-primary--sub {
+    letter-spacing: 0.5rem;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  background-image: -webkit-gradient(linear, left top, right top, from(#686868), to(#333));
+  background-image: linear-gradient(to right, #686868, #333);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  letter-spacing: 0.2rem;
+  width: 100%;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-secondary:hover {
+  -webkit-transform: skewX(-2deg) scaleY(1.1);
+          transform: skewX(-2deg) scaleY(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.6);
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+}
+
+.paragraph:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+  background-color: #333;
+  margin: 0;
+  padding: 10px;
+}
+
+.grid-container__tall {
+  grid-row: span 2;
+}
+
+.grid-container__wide {
+  grid-column: span 2;
+}
+
+.header {
+  height: 45vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(85, 197, 122, 0.4)), to(rgba(40, 180, 133, 0.4))), url("https://source.unsplash.com/h54G2wyDadc");
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.4), rgba(40, 180, 133, 0.4)), url("https://source.unsplash.com/h54G2wyDadc");
+  background-size: cover;
+  /* covers width of viewport */
+  background-position: center;
+  /* center stays the same, rest is cropped */
+  position: relative;
+  /* now can place children absolute and position them*/
+}
+
+.header__logo-box {
+  /* logo top left corner */
+  position: absolute;
+  /* means you can position it top, bottom..., must set parent to position: relative */
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  /* actuall logo */
+  height: 6.5rem;
+  border-radius: 0.5rem;
+}
+
+.header__text-box {
+  /* contains the h1 element */
+  padding-top: 4rem;
+  position: absolute;
+  top: 40%;
+  /* top-left corner position 40% from top */
+  left: 50%;
+  /* top-left corner position 50% from left */
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /* moves it 50% of total length up and left, perfectely centering it */
+  text-align: center;
+  /* centers button */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 2.5rem;
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+}
+/*# sourceMappingURL=style.css.map */

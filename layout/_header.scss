@@ -1,0 +1,58 @@
+.header {
+  height: 45vh;
+  background-image: linear-gradient(
+      /* two images one on other */ to right bottom,
+      rgba($color-primary-light, 0.4),
+      rgba($color-primary-dark, 0.4)
+    ),
+    url("https://source.unsplash.com/h54G2wyDadc");
+  background-size: cover; /* covers width of viewport */
+  background-position: center; /* center stays the same, rest is cropped */
+  position: relative; /* now can place children absolute and position them*/
+
+  &__logo-box {
+    /* logo top left corner */
+    position: absolute; /* means you can position it top, bottom..., must set parent to position: relative */
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    /* actuall logo */
+    height: 6.5rem;
+    border-radius: 0.5rem;
+  }
+
+  &__text-box {
+    /* contains the h1 element */
+    padding-top: 4rem;
+    position: absolute;
+    top: 40%; /* top-left corner position 40% from top */
+    left: 50%; /* top-left corner position 50% from left */
+    transform: translate(
+      -50%,
+      -50%
+    ); /* moves it 50% of total length up and left, perfectely centering it */
+    text-align: center; /* centers button */
+  }
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 2.5rem;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+  }
+}
